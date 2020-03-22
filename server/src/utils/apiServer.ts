@@ -4,7 +4,9 @@ import cors from 'cors';
 import express from 'express';
 import packageJson from '../../package.json';
 import config from '../config.json';
-import { readData, writeData } from './databaseHelper';
+import { readAllData, writeData, removeData } from './databaseHelper';
+import { IFarm} from '../models/Farmer'
+import { ITask } from '../models/Task'
 
 /**
  * Class to help with expressjs routing.
@@ -37,14 +39,12 @@ export class AppHelper {
             res.setHeader('Connection', 'keep-alive');
             next();
         });
-        
+
         //Write in DB 
         app.post('/createFarm', async (req, res) => {
             try {
-                const { farm, farmer, email, phone, street, city} = req.body;
-                if ( farm && farmer && email && phone && street && city) {
-                    await writeData('farm', { farm, farmer, email, phone, street, city });
-                }
+                const farmData : IFarm = req.body
+                await writeData('farm', farmData);
 
                 await res.send({
                     success: true
@@ -60,11 +60,9 @@ export class AppHelper {
 
         app.post('/createTask', async (req, res) => {
             try {
-                const { farm, good, spots, date, burden, transport} = req.body;
-                if ( farm && good && spots && date && burden && transport) {
-                    await writeData('task', {farm, good, spots, date, burden, transport});
-                }
-
+                const taskData : ITask = req.body
+                await writeData('task', taskData);
+     
                 await res.send({
                     success: true
                 });
@@ -79,31 +77,71 @@ export class AppHelper {
 
         app.get('/getFarms', async (req, res) => {
             try {
-                let user: any = await readData('farm');
-            
-
+                let farms: any = await readAllData('farm');
                 res.json({
-                    ...user
+                    ...farms
                 });
             } catch (error) {
                 console.log('get user error', error);
                 res.send({ error });
             }
         });
-        
+
 
         app.get('/getTasks', async (req, res) => {
             try {
-                let user: any = await readData('task');
-
+                let tasks: any = await readAllData('task');
                 res.json({
-                    ...user
+                    ...tasks
                 });
             } catch (error) {
                 console.log('get user error', error);
                 res.send({ error });
             }
         });
+
+        app.get('/fillDB', async (req, res) => {
+            try {
+                config.defaultFarmers.forEach(async (farmer: IFarm) => {
+                    await writeData('farm', farmer);
+                })
+                config.defaultTasks.forEach(async (task: ITask)  => {
+                    await writeData('task', task);
+                })
+
+                await res.send({
+                    success: true
+                });
+            } catch (error) {
+                console.log('Fill DB Error', error);
+                res.send({
+                    success: false,
+                    error
+                });
+            }
+        });
+
+
+        app.get('/cleanDB', async (req, res) => {
+            try {
+                await removeData('farm');
+                await removeData('task');
+
+                await res.send({
+                    success: true
+                });
+            } catch (error) {
+                console.log('Clean DB Error', error);
+                res.send({
+                    success: false,
+                    error
+                });
+            }
+        });
+
+
+
+
 
         const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 5000;
         if (!customListener) {
