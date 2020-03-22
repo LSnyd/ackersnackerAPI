@@ -9,7 +9,7 @@ const db = new sqlite3.Database(
             return console.error('New database Error', error);
         }
         await db.run('CREATE TABLE IF NOT EXISTS farm ( farm TEXT PRIMARY KEY, farmer TEXT, email TEXT, phone TEXT, street TEXT, city TEXT)');
-        await db.run('CREATE TABLE IF NOT EXISTS task (farm TEXT PRIMARY KEY, good TEXT, spots INTEGER, date TEXT, burden TEXT, transport TEXT)');
+        await db.run('CREATE TABLE IF NOT EXISTS task (farm TEXT, good TEXT, spots INTEGER, date TEXT, burden TEXT, transport TEXT)');
     }
 );
 
@@ -27,7 +27,7 @@ export const createFarm = async ({ farm , farmer = '', email = '', phone = '', s
 };
 
 export const createTask = async ({ farm, good, spots, date, burden, transport }) => {
-    await db.run('REPLACE INTO task (farm, good, spots, date, burden, transport ) VALUES (?, ?, ?, ?, ?, ?)', [farm, good, spots, date, burden, transport]);
+    await db.run('INSERT INTO task (farm, good, spots, date, burden, transport ) VALUES (?, ?, ?, ?, ?, ?)', [farm, good, spots, date, burden, transport]);
 };
 
 export const writeData = async (table, data) => {
@@ -50,14 +50,15 @@ export const writeData = async (table, data) => {
 export const readData = async (table, searchField = null) => {
     return new Promise((resolve, reject) => {
         try {
-            let query = `SELECT * FROM ${table} ORDER BY rowid DESC LIMIT 1`;
+            let query = `SELECT * FROM ${table} ORDER BY rowid`;
             if (searchField) {
-                query = `SELECT * FROM ${table} WHERE id = '${searchField}' ORDER BY rowid DESC LIMIT 1`;
+                query = `SELECT * FROM ${table} WHERE id = '${searchField}' ORDER BY rowid`;
             }
             db.get(query, (err, row) => {
                 if (err) {
                     return resolve(null);
                 } else {
+                    console.log("row", row)
                     return resolve(row || null);
                 }
             });
