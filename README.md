@@ -51,6 +51,22 @@ payload:
 }
 
 ```
+
+#### POST /query 
+
+Query all results for certain value in table 
+
+
+payload: 
+
+```json
+{    "table": "task", 
+     "attribute": "farm", 
+     "value": "WeddingRüben"
+}
+
+```
+
 #### GET /getFarms
 
 Returns all farms in database 
