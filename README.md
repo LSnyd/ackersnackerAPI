@@ -27,12 +27,15 @@ payload:
 
 ```json
 { 
-    "farm":"WeddingRüben",
-    "farmer":"Ka Rotte",
-    "email":"weddingrueben@gmail.de",
-    "phone":"02080/8627",
-    "street":"Rübenweg 5", 
-    "city":"Berlin" 
+      "farmName": "WeddingRüben",
+      "firstName": "Friedrich",
+      "secondName": "Schneider",
+      "street": "Müllerstraße",
+      "streetNumber": 122,
+      "city": "Berlin",
+      "place": "13353",
+      "longitude": 13.361164093017578,
+      "latitude": 52.54517364501953
 }
 ```
 
@@ -42,12 +45,16 @@ Creates task in database of server
 payload: 
 
 ```json
-{    "farm":"WeddingRüben",
-     "good":"Spargel",
-     "spots":4,
-     "date":"23.03.2020",
-     "burden":"schwer",
-     "transport":"Abholdienst"
+{    
+     "farmName": "WeddingRüben",
+     "id": "3487adb3-7c29-4f4d-53ce-ac211d1be734",
+     "veggieTitle": "Kartoffeln",
+     "date": "24.03.2020",
+     "time": "10-16",
+     "availableSlots": "9",
+     "strain": "Schwer",
+     "transport": "SBahn",
+     "salary": "14"
 }
 
 ```
@@ -61,7 +68,7 @@ payload:
 
 ```json
 {    "table": "task", 
-     "attribute": "farm", 
+     "attribute": "farmName", 
      "value": "WeddingRüben"
 }
 
