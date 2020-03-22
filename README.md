@@ -1,5 +1,11 @@
-# ackersnackerAPI
-WirvsVirus2020
+# ackersnackerAPI - WirvsVirus2020
+
+Ackersnacker hilft Landwirten regionale Saisonarbeiter:Innen zu finden und eröffnet neue Einkommensquellen für Bürger:Innen während der Krise, indem wir Landwirte und Bürger:Innen zusammen bringen.
+
+https://www.youtube.com/watch?v=izkkpHKH_qo
+
+https://devpost.com/software/ackersnacker
+
 
 ### Pre-requisites
 
