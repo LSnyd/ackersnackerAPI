@@ -6,6 +6,7 @@ export interface ITask {
     time: string, 
     availableSlots: string,
     strain: string, 
-    transport: string, 
+    transport: string,
+    salary: string
 }
 

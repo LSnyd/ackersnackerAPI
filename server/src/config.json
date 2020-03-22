@@ -44,7 +44,9 @@
             "time": "10-15",
             "availableSlots": "6",
             "strain": "Schwer",
-            "transport": "Abholdienst"
+            "transport": "Abholdienst",
+            "salary": "11"
+
         },
         
         {
@@ -55,7 +57,8 @@
             "time": "10-18",
             "availableSlots": "2",
             "strain": "Schwer",
-            "transport": "Abholdienst"
+            "transport": "Abholdienst",
+            "salary": "11"
         },
         {
             "farmName": "NeuköllnSpargel",
@@ -65,7 +68,8 @@
             "time": "10-18",
             "availableSlots": "2",
             "strain": "Schwer",
-            "transport": "Abholdienst"
+            "transport": "Abholdienst",
+            "salary": "12"
         },
         {
             "farmName": "NeuköllnSpargel",
@@ -75,7 +79,9 @@
             "time": "10-18",
             "availableSlots": "1",
             "strain": "Mittel",
-            "transport": "Abholdienst"
+            "transport": "Abholdienst",
+            "salary": "12"
+
         },
         {
             "farmName": "WeddingRüben",
@@ -85,7 +91,8 @@
             "time": "10-18",
             "availableSlots": "6",
             "strain": "Schwer",
-            "transport": "SBahn"
+            "transport": "SBahn",
+            "salary": "14"
         },
         {
             "farmName": "WeddingRüben",
@@ -95,7 +102,8 @@
             "time": "10-16",
             "availableSlots": "9",
             "strain": "Schwer",
-            "transport": "SBahn"
+            "transport": "SBahn",
+            "salary": "14"
         }
     ]
 }

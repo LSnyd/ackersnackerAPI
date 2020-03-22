@@ -8,8 +8,8 @@ const db = new sqlite3.Database(
         if (error) {
             return console.error('New database Error', error);
         }
-        await db.run('CREATE TABLE IF NOT EXISTS farm ( farmName TEXT PRIMARY KEY, firstName TEXT, secondName TEXT, street TEXT, streetNumber NUMBER, city TEXT, place TEXT, longitude NUMBER,latitude NUMBER)');
-        await db.run('CREATE TABLE IF NOT EXISTS task (farmName TEXT, id TEXT, veggieTitle TEXT, date TEXT, time TEXT, availableSlots TEXT, strain TEXT, transport TEXT)');
+        await db.run('CREATE TABLE IF NOT EXISTS farm ( farmName TEXT PRIMARY KEY, firstName TEXT, secondName TEXT, street TEXT, streetNumber NUMBER, city TEXT, place TEXT, longitude NUMBER, latitude NUMBER )');
+        await db.run('CREATE TABLE IF NOT EXISTS task ( farmName TEXT, id TEXT, veggieTitle TEXT, date TEXT, time TEXT, availableSlots TEXT, strain TEXT, transport TEXT, salary TEXT )');
     }
 );
 
@@ -22,11 +22,11 @@ export const close = async () => {
 };
 
 export const createFarm = async ({  farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude }) => {
-    await db.run('REPLACE INTO farm ( farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [ farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude ]);
+    await db.run('REPLACE INTO farm ( farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [ farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude]);
 };
 
-export const createTask = async ({ farmName, id, veggieTitle, date, time, availableSlots, strain, transport }) => {
-    await db.run('INSERT INTO task ( farmName, id, veggieTitle, date, time, availableSlots, strain, transport ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [ farmName, id, veggieTitle, date, time, availableSlots, strain, transport]);
+export const createTask = async ({ farmName, id, veggieTitle, date, time, availableSlots, strain, transport, salary }) => {
+    await db.run('INSERT INTO task ( farmName, id, veggieTitle, date, time, availableSlots, strain, transport, salary ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [ farmName, id, veggieTitle, date, time, availableSlots, strain, transport, salary]);
 };
 
 export const writeData = async (table, data) => {
