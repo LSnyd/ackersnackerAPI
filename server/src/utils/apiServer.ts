@@ -82,9 +82,9 @@ export class AppHelper {
                 const request: IQueryRequest = req.body
                 let rows: any = await readRows(request.table, request.attribute, request.value);
                 console.log("ro2,",rows)
-                res.json({
+                res.send(
                     rows
-                });
+                );
     
             } catch (error) {
                 console.log('data Error', error);
@@ -98,9 +98,10 @@ export class AppHelper {
         app.get('/getFarms', async (req, res) => {
             try {
                 let farms: any = await readAllData('farm');
-                res.json({
+                console.log("mu",farms)
+                res.send(
                     farms
-                });
+                );
             } catch (error) {
                 console.log('get user error', error);
                 res.send({ error });
@@ -111,9 +112,9 @@ export class AppHelper {
         app.get('/getTasks', async (req, res) => {
             try {
                 let tasks: any = await readAllData('task');
-                res.json({
+                res.send(
                     tasks
-                });
+                    );
             } catch (error) {
                 console.log('get user error', error);
                 res.send({ error });

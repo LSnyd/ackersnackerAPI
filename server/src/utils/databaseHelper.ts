@@ -8,8 +8,8 @@ const db = new sqlite3.Database(
         if (error) {
             return console.error('New database Error', error);
         }
-        await db.run('CREATE TABLE IF NOT EXISTS farm ( farm TEXT PRIMARY KEY, farmer TEXT, email TEXT, phone TEXT, street TEXT, city TEXT)');
-        await db.run('CREATE TABLE IF NOT EXISTS task (farm TEXT, good TEXT, spots INTEGER, date TEXT, burden TEXT, transport TEXT)');
+        await db.run('CREATE TABLE IF NOT EXISTS farm ( farmName TEXT PRIMARY KEY, firstName TEXT, secondName TEXT, street TEXT, streetNumber NUMBER, city TEXT, place TEXT, longitude NUMBER,latitude NUMBER)');
+        await db.run('CREATE TABLE IF NOT EXISTS task (id TEXT, veggieTitle TEXT, date TEXT, time TEXT, availableSlots TEXT, strain TEXT, transport TEXT)');
     }
 );
 
@@ -21,13 +21,12 @@ export const close = async () => {
     });
 };
 
-export const createFarm = async ({ farm , farmer = '', email = '', phone = '', street = '', city = '' }) => {
-    console.log("CREATE FARM")
-    await db.run('REPLACE INTO farm (farm, farmer, email, phone, street, city) VALUES (?, ?, ?, ?, ?, ?)', [farm, farmer, email, phone, street, city ]);
+export const createFarm = async ({  farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude }) => {
+    await db.run('REPLACE INTO farm ( farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [ farmName, firstName, secondName, street, streetNumber, city, place, longitude, latitude ]);
 };
 
-export const createTask = async ({ farm, good, spots, date, burden, transport }) => {
-    await db.run('INSERT INTO task (farm, good, spots, date, burden, transport ) VALUES (?, ?, ?, ?, ?, ?)', [farm, good, spots, date, burden, transport]);
+export const createTask = async ({ id, veggieTitle, date, time, availableSlots, strain, transport }) => {
+    await db.run('INSERT INTO task ( id, veggieTitle, date, time, availableSlots, strain, transport ) VALUES (?, ?, ?, ?, ?, ?, ?)', [ id, veggieTitle, date, time, availableSlots, strain, transport]);
 };
 
 export const writeData = async (table, data) => {

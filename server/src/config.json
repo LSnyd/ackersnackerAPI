@@ -2,78 +2,107 @@
     "database": "../../../db/db.sqlite3",
     "defaultFarmers": [
         {
-            "farm": "WeddingRüben",
-            "farmer": "Ka Rotte",
-            "email": "weddingrueben@gmail.de",
-            "phone": "02080/8627",
-            "street": "Rübenweg 5",
-            "city": "Berlin"
+            "farmName": "WeddingRüben",
+            "firstName": "Friedrich",
+            "secondName": "Schneider",
+            "street": "Müllerstraße",
+            "streetNumber": 122,
+            "city": "Berlin",
+            "place": "13353",
+            "longitude": 13.361164093017578,
+            "latitude": 52.54517364501953
         },
         {
-            "farm": "NeuköllnSpargel",
-            "farmer": "Sp Argel",
-            "email": "neuköllnspargel@gmail.de",
-            "phone": "02068/87827",
-            "street": "Spargelheide 9",
-            "city": "Berlin"
+            "farmName": "NeuköllnSpargel",
+            "firstName": "Jonas",
+            "secondName": "Müller",
+            "street": "Hermannstraße",
+            "streetNumber": 2,
+            "city": "Berlin",
+            "place": "12049",
+            "longitude": 13.4243011,
+            "latitude": 52.4858028
         },
         {
-            "farm": "BremerErdbeeren",
-            "farmer": "Erd Beere",
-            "email": "bremererdbeeren@gmail.de",
-            "phone": "0276/8382",
-            "street": "Erdbeeren Allee 5",
-            "city": "Bremen"
+            "farmName": "BremerErdbeeren",
+            "firstName": "Helga",
+            "secondName": "Richter",
+            "street": "Humboldtstraße",
+            "streetNumber": 44,
+            "city": "Bremen",
+            "place": "28203",
+            "longitude": 8.8265707,
+            "latitude": 53.0751172
         }
     ],
     "defaultTasks": [
         {
-            "farm": "WeddingRüben",
-            "good": "Rüben",
-            "spots": 4,
+            "farmName": "BremerErdbeeren",
+            "id": "2125adb3-7c29-4f4d-81ce-ac211d1be748",
+            "veggieTitle": "Erdbeeren",
             "date": "23.03.2020",
-            "burden": "schwer",
+            "time": "10-15",
+            "availableSlots": "6",
+            "strain": "Schwer",
+            "transport": "Abholdienst"
+        },
+        
+        {
+            "farmName": "BremerErdbeeren",
+            "id": "2387adb3-7c29-4f4d-81ce-ac211d1be748",
+            "veggieTitle": "Erdbeeren",
+            "date": "27.03.2020",
+            "time": "10-18",
+            "availableSlots": "2",
+            "strain": "Schwer",
             "transport": "Abholdienst"
         },
         {
-            "farm": "WeddingRüben",
-            "good": "Rüben",
-            "spots": 2,
-            "date": "23.03.2020",
-            "burden": "leicht",
+            "farmName": "NeuköllnSpargel",
+            "id": "2387adb3-7c29-4f4d-81ce-ac211d1be734",
+            "veggieTitle": "Spargel",
+            "date": "27.03.2020",
+            "time": "10-18",
+            "availableSlots": "2",
+            "strain": "Schwer",
             "transport": "Abholdienst"
         },
         {
-            "farm": "NeuköllnSpargel",
-            "good": "Spargel",
-            "spots": 4,
-            "date": "23.03.2020",
-            "burden": "schwer",
-            "transport": " Kein Abholdienst"
-        },
-        {
-            "farm": "NeuköllnSpargel",
-            "good": "Spargel",
-            "spots": 2,
+            "farmName": "NeuköllnSpargel",
+            "id": "2387adb3-7c40-4f4d-81ce-ac211d1be734",
+            "veggieTitle": "Spargel",
             "date": "24.03.2020",
-            "burden": "schwer",
-            "transport": "Kein Abholdienst"
+            "time": "10-18",
+            "availableSlots": "1",
+            "strain": "Mittel",
+            "transport": "Abholdienst"
         },
         {
-            "farm": "BremerErdbeeren",
-            "good": "Erdbeeren",
-            "spots": 4,
-            "date": "23.03.2020",
-            "burden": "schwer",
-            "transport": "Sbahn"
+            "farmName": "WeddingRüben",
+            "id": "2387adb3-7c29-4f4d-53ce-ac211d1be734",
+            "veggieTitle": "Karotten",
+            "date": "24.03.2020",
+            "time": "10-18",
+            "availableSlots": "6",
+            "strain": "Schwer",
+            "transport": "SBahn"
         },
         {
-            "farm": "BremerErdbeeren",
-            "good": "Erdbeeren",
-            "spots": 4,
-            "date": "23.03.2020",
-            "burden": "leicht",
+            "farmName": "WeddingRüben",
+            "id": "3487adb3-7c29-4f4d-53ce-ac211d1be734",
+            "veggieTitle": "Kartoffeln",
+            "date": "24.03.2020",
+            "time": "10-16",
+            "availableSlots": "9",
+            "strain": "Schwer",
             "transport": "SBahn"
         }
     ]
 }
+
+
+
+
+
+
+

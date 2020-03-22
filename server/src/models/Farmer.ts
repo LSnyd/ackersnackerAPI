@@ -1,10 +1,12 @@
 
 export interface IFarm {
-    farm: string,
-    farmer: string, 
-    email: string,
-    phone: string, 
+    farmName: string,
+    firstName: string, 
+    secondName: string,
     street: string, 
+    streetNumber: number, 
     city: string,
+    place: string,
+    longitude: number, 
+    latitude: number
 }
-

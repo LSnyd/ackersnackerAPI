@@ -1,9 +1,11 @@
 export interface ITask {
 
-    farm: string, 
-    good: string, 
-    spots: number, 
+    id: string, 
+    veggieTitle: string, 
     date: string, 
-    burden: string,
+    time: string, 
+    availableSlots: string,
+    strain: string, 
     transport: string, 
 }
+
