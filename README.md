@@ -51,12 +51,21 @@ payload:
 }
 
 ```
-#### Get /getFarms
+#### GET /getFarms
 
 Returns all farms in database 
 
 
-#### Get /getTasks
+#### GET /getTasks
 
 Returns all tasks in database 
 
+
+#### GET /cleanDB
+
+Deletes all data from DB 
+
+
+#### GET /fillDB
+
+Fills DB with 3 default farmes and 2 tasks per farmer 
