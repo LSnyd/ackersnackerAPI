@@ -61,9 +61,9 @@ export class AppHelper {
 
         app.post('/createTask', async (req, res) => {
             try {
-                const taskData : ITask = req.body
-                await writeData('task', taskData);
-     
+                req.body.forEach(async (task: ITask) => {
+                    await writeData('task', task);
+                })
                 await res.send({
                     success: true
                 });
