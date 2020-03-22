@@ -1,6 +1,79 @@
 {
- 
-    "database": "../../../db/marketmanager.sqlite3"
-
-    
+    "database": "../../../db/db.sqlite3",
+    "defaultFarmers": [
+        {
+            "farm": "WeddingRüben",
+            "farmer": "Ka Rotte",
+            "email": "weddingrueben@gmail.de",
+            "phone": "02080/8627",
+            "street": "Rübenweg 5",
+            "city": "Berlin"
+        },
+        {
+            "farm": "NeuköllnSpargel",
+            "farmer": "Sp Argel",
+            "email": "neuköllnspargel@gmail.de",
+            "phone": "02068/87827",
+            "street": "Spargelheide 9",
+            "city": "Berlin"
+        },
+        {
+            "farm": "BremerErdbeeren",
+            "farmer": "Erd Beere",
+            "email": "bremererdbeeren@gmail.de",
+            "phone": "0276/8382",
+            "street": "Erdbeeren Allee 5",
+            "city": "Bremen"
+        }
+    ],
+    "defaultTasks": [
+        {
+            "farm": "WeddingRüben",
+            "good": "Rüben",
+            "spots": 4,
+            "date": "23.03.2020",
+            "burden": "schwer",
+            "transport": "Abholdienst"
+        },
+        {
+            "farm": "WeddingRüben",
+            "good": "Rüben",
+            "spots": 2,
+            "date": "23.03.2020",
+            "burden": "leicht",
+            "transport": "Abholdienst"
+        },
+        {
+            "farm": "NeuköllnSpargel",
+            "good": "Spargel",
+            "spots": 4,
+            "date": "23.03.2020",
+            "burden": "schwer",
+            "transport": " Kein Abholdienst"
+        },
+        {
+            "farm": "NeuköllnSpargel",
+            "good": "Spargel",
+            "spots": 2,
+            "date": "24.03.2020",
+            "burden": "schwer",
+            "transport": "Kein Abholdienst"
+        },
+        {
+            "farm": "BremerErdbeeren",
+            "good": "Erdbeeren",
+            "spots": 4,
+            "date": "23.03.2020",
+            "burden": "schwer",
+            "transport": "Sbahn"
+        },
+        {
+            "farm": "BremerErdbeeren",
+            "good": "Erdbeeren",
+            "spots": 4,
+            "date": "23.03.2020",
+            "burden": "leicht",
+            "transport": "SBahn"
+        }
+    ]
 }
