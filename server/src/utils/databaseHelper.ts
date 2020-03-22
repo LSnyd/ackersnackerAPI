@@ -76,6 +76,7 @@ export const readAllData = async (table) => {
                 if (err) {
                     return resolve(null);
                 } else {
+                    console.log("2k",rows)
                     return resolve(rows);
                 }
             });
