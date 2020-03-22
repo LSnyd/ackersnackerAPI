@@ -4,9 +4,10 @@ import cors from 'cors';
 import express from 'express';
 import packageJson from '../../package.json';
 import config from '../config.json';
-import { readAllData, writeData, removeData } from './databaseHelper';
+import { readAllData, writeData, removeData, readRows} from './databaseHelper';
 import { IFarm} from '../models/Farmer'
 import { ITask } from '../models/Task'
+import { IQueryRequest } from '../models/QueryRequest';
 
 /**
  * Class to help with expressjs routing.
@@ -75,11 +76,30 @@ export class AppHelper {
             }
         });
 
+        app.post('/query', async (req, res) => {
+            try {
+                console.log(req.body)
+                const request: IQueryRequest = req.body
+                let rows: any = await readRows(request.table, request.attribute, request.value);
+                console.log("ro2,",rows)
+                res.json({
+                    rows
+                });
+    
+            } catch (error) {
+                console.log('data Error', error);
+                res.send({
+                    success: false,
+                    error
+                });
+            }
+        });
+
         app.get('/getFarms', async (req, res) => {
             try {
                 let farms: any = await readAllData('farm');
                 res.json({
-                    ...farms
+                    farms
                 });
             } catch (error) {
                 console.log('get user error', error);
@@ -92,7 +112,7 @@ export class AppHelper {
             try {
                 let tasks: any = await readAllData('task');
                 res.json({
-                    ...tasks
+                    tasks
                 });
             } catch (error) {
                 console.log('get user error', error);

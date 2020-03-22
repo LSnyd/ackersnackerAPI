@@ -86,6 +86,26 @@ export const readAllData = async (table) => {
     });
 };
 
+export const readRows = async (table, column, value) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const query = `SELECT * FROM ${table} WHERE ${column} = ?`;
+
+            db.all(query, [value], (err, rows) => {
+                if (err) {
+                    return resolve(null);
+                } else {
+                    return resolve(rows || null);
+                }
+            });
+        } catch (error) {
+            console.log('readData', error);
+            return reject(null);
+        }
+    });
+};
+
+
 export const removeData = (table) => {
     return new Promise(async resolve => {
         await db.run(`DELETE FROM ${table}`);
